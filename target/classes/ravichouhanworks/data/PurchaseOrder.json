@@ -1,0 +1,19 @@
+[
+	
+	{
+		"userName" : "ravichouhan@gmail.com",
+		"password" : "Rahul@123",
+		"productName" : "ZARA COAT 3",
+		"countryName" : "India",
+		"confirmMessage" : "Thankyou for the order."
+	},
+	{
+		"userName" : "ravichouhan@gmail.com",
+		"password" : "Rahul@123",
+		"productName" : "ADIDAS ORIGINAL",
+		"countryName" : "India",
+		"confirmMessage" : "Thankyou for the order."
+	}
+	
+	
+]
