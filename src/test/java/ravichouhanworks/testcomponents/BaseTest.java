@@ -47,30 +47,29 @@ public class BaseTest {
 		driver.manage().window().maximize();
 		return driver;
 	}
-	
 
-	
 	public List<HashMap<String, String>> getJsonDataMap(String filePath) throws IOException {
-		
+
 		File file = new File(filePath);
-		String jsonContent = FileUtils.readFileToString(file,StandardCharsets.UTF_8);
-		
+		String jsonContent = FileUtils.readFileToString(file, StandardCharsets.UTF_8);
+
 		ObjectMapper mapper = new ObjectMapper();
-		List<HashMap<String,String>> data = mapper.readValue(jsonContent, new TypeReference<>() {
-		});
-		
+		List<HashMap<String, String>> data = (List<HashMap<String, String>>) mapper.readValue(jsonContent,
+				new TypeReference() {
+				});
+
 		return data;
 	}
-	
+
 	public String getScreenShot(String testName, WebDriver driver) throws IOException {
-		
-		TakesScreenshot take = ((TakesScreenshot)driver);
+
+		TakesScreenshot take = ((TakesScreenshot) driver);
 		File source = take.getScreenshotAs(OutputType.FILE);
-		File file = new File(System.getProperty("user.dir")+"//testresults//"+testName+".png");
+		File file = new File(System.getProperty("user.dir") + "//testresults//" + testName + ".png");
 		FileUtils.copyFile(source, file);
-		return System.getProperty("user.dir")+"//testreports//"+testName+".png";
+		return System.getProperty("user.dir") + "//testreports//" + testName + ".png";
 	}
-	
+
 	@BeforeMethod
 	public LandingPage launchingApplication() throws IOException {
 		driver = initializeDriver();
@@ -79,7 +78,7 @@ public class BaseTest {
 		return landingPage;
 
 	}
-	
+
 	@AfterMethod
 	public void tearDown() {
 		driver.quit();
